@@ -1,12 +1,18 @@
-const app = document.getElementById('app')
-const year = 89
+export default function count(array){
+  let uniqueElements = new Set(array)
+  let countOfUniquElements = {}
 
-app.innerHTML = century(year)
+  for(let val of uniqueElements) {
+    countOfUniquElements[val] = 0
+  }
 
+  for(let key in countOfUniquElements) {
+    for(let elem of array) {
+      if(key === String(elem)) {
+        countOfUniquElements[key] += 1
+      }
+    }
+  }
 
-function century(year) {
-  if (year % 100 !== 0)
-    return Math.floor(year / 100 + 1) 
-
-  return year / 100
+  return countOfUniquElements
 }
