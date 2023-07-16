@@ -1,5 +1,7 @@
-let data = require('../../../Downloads/response (1).json')
+let date = new Date(Date.parse('2022-10-01 00:00:00'))
+let options = {
+    month: 'short',
+    day: 'numeric'
+}
 
-let dates = data.list.map(d => d.date.value, d.user.value)
-
-console.log(dates);
+console.log('Date:', date.toLocaleString('ru-RU', options))
